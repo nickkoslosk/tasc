@@ -1,0 +1,69 @@
+<div class="row mx-auto" style="width: 1000px">
+  <h3>
+    Please enter all your items here to checkout.
+  </h3>
+  <h4>
+    If the item is Candy, Popcorn, or Coffee it is exempt.
+  </h4>
+  <div class="col-xs-10">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Tax</th>
+        <th>Import Tax</th>
+      </thead>
+      <tbody >
+        <tr *ngFor="let item of Item; let i = index">
+          <td
+          style="cursor: pointer"
+        
+        (click)="onEditItem(i)">
+        {{ item.name }} 
+          </td>
+          <td
+          style="cursor: pointer"
+        
+        (click)="onEditItem(i)">
+        {{ item.price }} 
+          </td>
+          <td
+          style="cursor: pointer"
+        
+        (click)="onEditItem(i)">
+        {{ item.tax }} 
+          </td>
+          <td
+          style="cursor: pointer"
+       
+        (click)="onEditItem(i)">
+        {{ item.iTax }} 
+          </td>
+       
+        </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <td >
+              Sales Taxes:
+          </td>
+          <td>
+            {{ taxTotal }}
+          </td>
+          <td>
+            Total: 
+          </td>
+          <td>
+            {{ total }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <button class="btn btn-primary" type="button" (click)=Generate()>Calculate total</button>
+  <button class="btn btn-primary" type="button" (click)=printpage()>print reciept</button>
+</div>
